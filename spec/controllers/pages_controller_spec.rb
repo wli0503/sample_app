@@ -7,12 +7,6 @@ RSpec.describe PagesController, type: :controller do
       get :home
       expect(response).to have_http_status(:success)
     end
-    
-    it "should return the right title" do
-      get :home
-      expect(response.body).to have_title(
-        "Ruby on Rails Tutorial Sample App | Home")
-    end
   end
 
   describe "GET #contact" do
