@@ -11,6 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150727185823) do
+
+  create_table "microposts", force: true do |t|
+    t.integer  "user_id"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "microposts", ["user_id"], name: "index_microposts_on_user_id", using: :btree
+
+  create_table "tests", force: true do |t|
+    t.string   "name"
+    t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "mark"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.boolean  "admin"
+  end
 
 end

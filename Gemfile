@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'protected_attributes'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.7'
 
@@ -46,8 +48,15 @@ end
 
 group :development do
   gem 'rspec-rails', '3.3.3'
+  gem 'annotate'
 end
 
 group :test do
   gem 'rspec', '3.3.0'
+  gem 'factory_girl_rails'
 end
+
+gem 'gravatar_image_tag'
+gem 'faker'
+gem 'will_paginate'
+

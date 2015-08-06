@@ -1,15 +1,25 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
+  get "microposts/create"
+  get "microposts/destroy"
+  get "tests/new"
+  resources :users
+  resources :sessions , :only => [:new, :create, :destroy]
+  resources :microposts, :only => [:destroy, :create]
+  
+  get '/signin', :to => 'sessions#new'
+  get '/signout', :to => 'sessions#destroy'
+  
+  root 'pages#home'
   get '/pages/help', :to => 'pages#help', :as => 'help'
-  get '/pages/home', :to => 'pages#home', :as => 'root'
+  get '/pages/home', :to => 'pages#home'
   get '/pages/about', :to => 'pages#about', :as => 'about'
   get '/pages/contact', :to => 'pages#contact', :as => 'contact'
   get '/signup', :to => 'users#new', :as => 'signup'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
